@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+// 通用手机屏幕
+$phone: 47em;
+
+// iphone4
+$iphone4-w: 320px;
+$iphone4-h: 480px;
+
+// iphone5
+$iphone5-w: 320px;
+$iphone5-h: 568px;
+
+// iphone6
+$iphone6-w: 375px;
+$iphone6-h: 667px;
+
+// plus
+$plus-w: 414px;
+$plus-h: 736px;
+
+// 400以上
+$min-w: 400px;
+$max-w: 420px;
+
+// 400以上
+$min-xm: 350px;
+$max-xm: 399px;
+
+// ipad  =  768~1360px
+$ipad-min: 47.063em;
+$ipad-max: 85em;
+
+// 笔记本 = 1360~1600px
+$s-pc-min: 85.063em;
+$s-pc-max: 100em;
+
+// 笔记本~1080p显示器 = 1600~1920px
+$l-pc-min: 100.063em;
+$l-pc-max: 120em;
+
+// 高分屏显示器  >  1920px
+$xl-pc: 120.063em;
+
+
+@mixin zsy($width){
+	@if $width == phone{
+        @media only screen and (max-width: $phone){
+            @content;
+        }
+    }
+    @else if $width == iphone4{
+        @media only screen and (device-width: $iphone4-w) and (device-height: $iphone4-h) and (-webkit-min-device-pixel-ratio: 2){
+            @content;
+        }
+    }
+    @else if $width == iphone5{
+        @media only screen and (device-width: $iphone5-w) and (device-height: $iphone5-h) and (-webkit-min-device-pixel-ratio: 2){
+            @content;
+        }
+    }
+    @else if $width == iphone6{
+        @media only screen and (device-width: $iphone6-w) and (device-height: $iphone6-h) and (-webkit-min-device-pixel-ratio: 2){
+            @content;
+        }
+    }
+    @else if $width == plus{
+        @media only screen and (device-width: $plus-w) and (device-height: $plus-h) and (-webkit-min-device-pixel-ratio: 2){
+            @content;
+        }
+    }
+    @else if $width == ipad{
+        @media only screen and (min-width: $ipad-min) and (max-width: $ipad-max){
+            @content;
+        }
+    }
+    @else if $width == s-pc{
+        @media only screen and (min-width: $s-pc-min) and (max-width: $s-pc-max){
+            @content;
+        }
+    }
+    @else if $width == l-pc{
+        @media only screen and (min-width: $l-pc-min) and (max-width: $l-pc-max){
+            @content;
+        }
+    }
+    @else if $width == xl-pc{
+        @media only screen and (min-width: $xl-pc){
+            @content;
+        }
+    }
+    @else if $width == android{
+        @media only screen and (min-width: $min-w) and (max-width: $max-w){
+            @content;
+        }
+    }
+    @else if $width == xiaomi{
+        @media only screen and (min-width: $min-xm) and (max-width: $max-xm){
+            @content;
+        }
+    }
+}
