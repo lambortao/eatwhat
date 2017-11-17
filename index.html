@@ -88,14 +88,19 @@ $(function(){
 
         // 删除已有的数据
         (function delectFoodArr(e) {
-            //TODO: 这里应该保留最后一个，不应该全部删除
             $(document).on('click', '.food', function() {
-                var index = $(this).attr('index');
-                foodArr.splice(index, 1);
-                setFoodArr(foodArr);
-                if(foodArr.length == 0){
-                    $('.foodUl').text('这就是列表');
+                if(foodArr.length > 1){
+                    $('#ok').text('不知道');
+                    var index = $(this).attr('index');
+                    foodArr.splice(index, 1);
+                    setFoodArr(foodArr);
+                    if(foodArr.length == 0){
+                        $('.foodUl').text('这就是列表');
+                    }
+                } else {
+                    alert('全部删掉是不准备吃了嘛？');
                 }
+                
             });
         })();  
 
@@ -145,8 +150,6 @@ $(function(){
                             foodList = $('.foodUl').children('li'),
                             txt = $('#ok');
 
-                        //TODO: 这里的算法需要更新
-                        // 在当前食物数量少于3个的话就不需要进行随机操作了
                         function food() {
                             if(foodNum > 3){
                                 var inNum = randomNum(foodNum);
