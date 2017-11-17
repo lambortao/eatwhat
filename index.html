@@ -141,15 +141,23 @@ $(function(){
                         startBool = true;
                         var foodNum = foodArr.length,
                             inNum = 0,
+                            goNum = 0,
                             foodList = $('.foodUl').children('li'),
                             txt = $('#ok');
 
                         //TODO: 这里的算法需要更新
                         // 在当前食物数量少于3个的话就不需要进行随机操作了
                         function food() {
-                            var inNum = randomNum(foodNum);
-                            foodList.eq(inNum).addClass('active').siblings('li').removeClass('active');
-                            txt.text(foodArr[inNum] + '！');
+                            if(foodNum > 3){
+                                var inNum = randomNum(foodNum);
+                                foodList.eq(inNum).addClass('active').siblings('li').removeClass('active');
+                                txt.text(foodArr[inNum] + '！');
+                            } else {
+                                foodList.eq(goNum).addClass('active').siblings('li').removeClass('active');
+                                txt.text(foodArr[goNum] + '！');
+                                goNum++;
+                                goNum = (goNum == foodNum) ? 0 : goNum;
+                            }
                         }
                         clear = window.setInterval(food, 60);
                     }
