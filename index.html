@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
@@ -32,12 +32,9 @@
 <script>
 $(function(){
     (function(){
-        // localStorage.removeItem('foodArr');
-        // return;
         var foodArr = new Array();
-        // 检查localstorage
+        
         (function getLocal() {
-            // 检查localstorage
             var foodArrOld = JSON.parse(localStorage.getItem('foodArr'));
             
             if(foodArrOld){
@@ -91,6 +88,7 @@ $(function(){
 
         // 删除已有的数据
         (function delectFoodArr(e) {
+            //TODO: 这里应该保留最后一个，不应该全部删除
             $(document).on('click', '.food', function() {
                 var index = $(this).attr('index');
                 foodArr.splice(index, 1);
@@ -110,7 +108,7 @@ $(function(){
         function randomNum(num) {
             return Math.floor(Math.random() * num);
         }
-        
+
         // 点击开整
         (function() {
             var startBool = false;
@@ -131,20 +129,23 @@ $(function(){
                     startBool = false;
                     window.clearInterval(clear);
                 } else {
-                    startBool = true;
                     var foodArrLength = foodArr.length;
                     if(foodArrLength == 0){
                         alert('不想点东西你整啥？');
                         return;
                     } else if (foodArrLength == 1) {
                         alert('就一个还能整别的？');
+                        return;
                     } else {
                         addFoodJy(true);
+                        startBool = true;
                         var foodNum = foodArr.length,
                             inNum = 0,
                             foodList = $('.foodUl').children('li'),
                             txt = $('#ok');
 
+                        //TODO: 这里的算法需要更新
+                        // 在当前食物数量少于3个的话就不需要进行随机操作了
                         function food() {
                             var inNum = randomNum(foodNum);
                             foodList.eq(inNum).addClass('active').siblings('li').removeClass('active');
