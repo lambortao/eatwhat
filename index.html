@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>吃啥</title>
 </head>
@@ -42,8 +43,6 @@ $(function(){
                 reloadDom(foodArr);
             } else {
                 foodArr = ['冒', '金拱门', '粥', '麻辣烫', '饺子', '烤冷面', '锅贴 or 生煎', '面条'];
-                // $('.foodUl').text('这就是列表');
-                // getLocal();
                 setFoodArr(foodArr);
             }
         })();
@@ -53,10 +52,10 @@ $(function(){
             $('#addFood').click(function() {
                 var addFoodInput = $('#addFoodInput').val();
                 if(addFoodInput == ''){
-                    alert('填点东西吧！');
+                    layer.msg('怎么不填吃啥呢');
                     return;
                 } else if (addFoodInput.length > 8) {
-                    alert('你能给我说说你吃的啥吗？八个字都不够写？？');
+                    layer.msg('你想吃的东西八个字都不够写？');
                     return;
                 } else {
                     reloadFoodArr(addFoodInput);
@@ -98,7 +97,7 @@ $(function(){
                         $('.foodUl').text('这就是列表');
                     }
                 } else {
-                    alert('全部删掉是不准备吃了嘛？');
+                    layer.msg('全部删掉是不准备吃了嘛？');
                 }
                 
             });
@@ -136,10 +135,10 @@ $(function(){
                 } else {
                     var foodArrLength = foodArr.length;
                     if(foodArrLength == 0){
-                        alert('不想点东西你整啥？');
+                        layer.msg('不想点东西你整啥？');
                         return;
                     } else if (foodArrLength == 1) {
-                        alert('就一个还能整别的？');
+                        layer.msg('就一个还能整别的？');
                         return;
                     } else {
                         addFoodJy(true);
