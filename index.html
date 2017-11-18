@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+    <script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>吃啥</title>
 </head>
@@ -49,6 +50,7 @@ $(function(){
         
         // 添加食物按钮
         (function() {
+            //TODO: 食物应该不能重复添加
             $('#addFood').click(function() {
                 var addFoodInput = $('#addFoodInput').val();
                 if(addFoodInput == ''){
@@ -58,8 +60,18 @@ $(function(){
                     layer.msg('你想吃的东西十个字都不够写？');
                     return;
                 } else {
-                    reloadFoodArr(addFoodInput);
-                    $('#addFoodInput').val('');
+                    // 验证新添加的食物是否重复
+                    var indexOfArr = _.indexOf(foodArr, addFoodInput);
+                    if(indexOfArr == -1){
+                        reloadFoodArr(addFoodInput);
+                        $('#addFoodInput').val('');
+                    } else {
+                        layer.tips('我在这里呐~', '.foodUl .food:eq('+indexOfArr+')', {
+                            tips: [1, '#3595CC'],
+                            time: 3000
+                        });
+                        return;
+                    }
                 }
             });
         })();
