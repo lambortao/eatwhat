@@ -26,7 +26,7 @@
     </section>
     <section class="foodarr-add">
         <div class="add">
-            <input type="text" placeholder="再添加一个你想吃的东西" id="addFoodInput">
+            <input type="text" placeholder="再添加一个你犹豫不决的东西" id="addFoodInput">
             <input type="button" value="加" id="addFood">
         </div>
     </section>
@@ -54,7 +54,10 @@ $(function(){
             $('#addFood').click(function() {
                 var addFoodInput = $('#addFoodInput').val();
                 if(addFoodInput == ''){
-                    layer.msg('想吃什么呢？');
+                    layer.tips('框框里要填候选项呦', '#addFoodInput', {
+                        tips: [1, '#093'],
+                        time: 4000
+                    });
                     return;
                 } else if (addFoodInput.length > 10) {
                     layer.msg('你想吃的东西十个字都不够写？');
