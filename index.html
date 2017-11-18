@@ -54,7 +54,7 @@ $(function(){
             $('#addFood').click(function() {
                 var addFoodInput = $('#addFoodInput').val();
                 if(addFoodInput == ''){
-                    layer.msg('怎么不填吃啥呢');
+                    layer.msg('想吃什么呢？');
                     return;
                 } else if (addFoodInput.length > 10) {
                     layer.msg('你想吃的东西十个字都不够写？');
@@ -157,7 +157,7 @@ $(function(){
                 } else {
                     var foodArrLength = foodArr.length;
                     if(foodArrLength == 0){
-                        layer.msg('不想点东西你整啥？');
+                        layer.msg('一个都没有你整啥？');
                         return;
                     } else if (foodArrLength == 1) {
                         layer.msg('就一个还能整别的？');
