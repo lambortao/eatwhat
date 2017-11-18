@@ -20,7 +20,7 @@
             var addFoodInput = $('#addFoodInput').val();
             if(addFoodInput == ''){
                 layer.tips('框框里要填候选项呦', '#addFoodInput', {
-                    tips: [1, '#093'],
+                    tips: [1, '#c33'],
                     time: 4000
                 });
                 return;
