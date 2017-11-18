@@ -7,24 +7,29 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.main-box{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .main{
     width: 960px;
     margin: 0 auto;
 
     @include zsy(phone){
         width: 100%;
-        padding: 0 20px;
+        padding: 20px;
     }
 }
 .layui-layer-hui{
     background-color: rgba(0, 0, 0, 0.8) !important;
-}
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 header{
     width: 100%;

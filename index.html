@@ -11,25 +11,27 @@
     <title>吃啥</title>
 </head>
 <body>
-<div class="main">
-    <header>
-        <h1>吃啥</h1>
-        <h2 id="ok">不知道</h2>
-        <p>点击加添加食物，点击食物即删除该食物</p>
-        <p>点击开整开始选择，停则停，PC 端还可以用 ESC 键来控制</p>
-    </header>
-    <section class="foodarr-list">
-        <ul class="foodUl"></ul>
-        <div class="input">
-            <input type="button" value="开整" id="start">
-        </div>
-    </section>
-    <section class="foodarr-add">
-        <div class="add">
-            <input type="text" placeholder="再添加一个让你犹豫不决的选择" id="addFoodInput">
-            <input type="button" value="加" id="addFood">
-        </div>
-    </section>
+<div class="main-box">
+    <div class="main">
+        <header>
+            <h1>吃啥</h1>
+            <h2 id="ok">不知道</h2>
+            <p>点击加添加食物，点击食物即删除该食物</p>
+            <p>点击开整开始选择，停则停，PC 端还可以用 ESC 键来控制</p>
+        </header>
+        <section class="foodarr-list">
+            <ul class="foodUl"></ul>
+            <div class="input">
+                <input type="button" value="开整" id="start">
+            </div>
+        </section>
+        <section class="foodarr-add">
+            <div class="add">
+                <input type="text" placeholder="再添加一个让你犹豫不决的选择" id="addFoodInput">
+                <input type="button" value="加" id="addFood">
+            </div>
+        </section>
+    </div>
 </div>
 <script src="./js/index.js"></script>
 </body>
