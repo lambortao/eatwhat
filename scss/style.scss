@@ -122,6 +122,12 @@ ul{
         &:active{
             transform: scale(0.92);
         }
+
+        &.stop{
+            color: #fff;
+            background: #c33;
+            border: 1px solid #fff;
+        }
     }
     small{
         display: block;

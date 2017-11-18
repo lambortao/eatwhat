@@ -90,11 +90,11 @@
         bool ? (
             addFood.attr('disabled', 'true'),
             foodUl.addClass('stop'),
-            $('#start').val('停')
+            $('#start').val('停').addClass('stop')
         ) : (
             addFood.removeAttr('disabled'),
             foodUl.removeClass('stop'),
-            $('#start').val('开整')
+            $('#start').val('开整').removeClass('stop')
         );
     }
 
