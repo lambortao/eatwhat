@@ -54,8 +54,8 @@ $(function(){
                 if(addFoodInput == ''){
                     layer.msg('怎么不填吃啥呢');
                     return;
-                } else if (addFoodInput.length > 8) {
-                    layer.msg('你想吃的东西八个字都不够写？');
+                } else if (addFoodInput.length > 10) {
+                    layer.msg('你想吃的东西十个字都不够写？');
                     return;
                 } else {
                     reloadFoodArr(addFoodInput);
