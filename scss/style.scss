@@ -2,6 +2,9 @@
 @import "fun";
 @import "media";
 
+
+$green: #093;
+$red: #c33;
 *{
     padding: 0;
     margin: 0;
@@ -76,7 +79,7 @@ ul{
         }
 
         &:hover{
-            background-color: #c33;
+            background-color: $red;
             color: #fff;
             border: 1px solid #fff;
         }
@@ -85,7 +88,7 @@ ul{
 
 .active{
     transition: 0;
-    background: #009933;
+    background: $green;
     color: #fff;
 }
 .foodarr-list{
@@ -115,9 +118,10 @@ ul{
         border-radius: 5px;
         cursor: pointer;
         outline: none;
-        background: #fff;
-        border: 1px solid #888;
+        background: $green;
+        border: 1px solid #090;
         transition: all 300ms ease;
+        color: #fff;
 
         &:active{
             transform: scale(0.92);
@@ -125,7 +129,7 @@ ul{
 
         &.stop{
             color: #fff;
-            background: #c33;
+            background: $red;
             border: 1px solid #fff;
         }
     }
@@ -172,10 +176,13 @@ ul{
     width: 200px;
     cursor: pointer;
     margin-top: 20px;
-    background: #fff;
+    background: $green;
+    color: #fff;
+    border: 1px solid #090;
 }
 #addFood:active{
     transform: scale(0.92);
+    background: $red;
 }
 #ok{
     color: #009933;
