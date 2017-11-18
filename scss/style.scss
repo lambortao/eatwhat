@@ -86,6 +86,13 @@ ul{
 .foodarr-list{
     margin: 60px 0;
 
+    ul.foodUl{
+        pointer-events: all;
+
+        &.stop{
+            pointer-events: none;
+        }
+    }
     @include zsy(phone){
         margin: 20px 0;
     }
@@ -105,7 +112,7 @@ ul{
         outline: none;
         background: #fff;
         border: 1px solid #888;
-        transition: transform 300ms ease;
+        transition: all 300ms ease;
 
         &:active{
             transform: scale(0.92);
@@ -139,9 +146,14 @@ ul{
 #addFoodInput{
     padding: 0 10px;
     width: 375px;
+    pointer-events: all;
 
     @include zsy(phone){
         width: 80%;
+    }
+
+    &.stop{
+        pointer-events: none;
     }
 }
 #addFood{

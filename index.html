@@ -105,7 +105,17 @@ $(function(){
 
         // 禁用添加
         function addFoodJy(bool) {
-            bool ? ($('#addFoodInput').attr('disabled', 'true'),$('#start').val('停')) : ($('#addFoodInput').removeAttr('disabled'),$('#start').val('开整'));
+            addFood = $('#addFoodInput');
+            foodUl = $('.foodUl');
+            bool ? (
+                addFood.attr('disabled', 'true'),
+                foodUl.addClass('stop'),
+                $('#start').val('停')
+            ) : (
+                addFood.removeAttr('disabled'),
+                foodUl.removeClass('stop'),
+                $('#start').val('开整')
+            );
         }
 
         // 取随机数
